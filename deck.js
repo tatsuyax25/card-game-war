@@ -10,9 +10,12 @@ export default class Deck {
         return this.cards.length
     }
     
-    shuffle() {
+    shuffle() { // Randomly reshuffle the cards
         for (i = this.numberOfCards - 1; i > 0; i--) {
             const newIndex = Math.floor(Math.random() * (i + 1))
+            const oldValue = this.cards[newIndex]
+            this.cards[newIndex] = this.cards[i]
+            this.cards[i] = oldValue
         }
     }
 }
