@@ -54,6 +54,14 @@ body {
     font-size: 4rem;
 }
 
+.card.red {
+    color: red;
+}
+
+.card.black {
+    color: black;
+}
+
 .card::before,
 .card::after {
     position: absolute;
@@ -62,9 +70,12 @@ body {
 }
 
 .card::before {
-
+    top: .5rem;
+    left: .5rem;
 }
 
 .card::after {
-
+    bottom: .5rem;
+    right: .5rem;
+    transform: rotate(180deg);
 }
