@@ -1,4 +1,6 @@
-*, *::after, *::before {
+*,
+*::after,
+*::before {
     box-sizing: border-box;
 }
 
@@ -6,7 +8,7 @@ body {
     margin: 0;
     display: grid;
     grid-template-columns: repeat(2, 4rem);
-    grid-template-rows: 7rem, 2rem, 7rem;
+    grid-template-rows: 7rem 2rem 7rem;
     gap: .5rem;
     cursor: pointer;
     justify-content: center;
@@ -71,7 +73,7 @@ body {
 
 .card::before {
     top: .5rem;
-    left: .5rem;
+    left: .5rem
 }
 
 .card::after {
