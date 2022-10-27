@@ -41,3 +41,28 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+.card {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+}
+
+.card::before,
+.card::after {
+
+}
+
+.card::before {
+
+}
+
+.card::after {
+
+}
