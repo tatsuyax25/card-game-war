@@ -23,6 +23,8 @@ body {
     font-size: 3rem;
     border-radius: .5rem;
     color: white;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .computer-deck {
