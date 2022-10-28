@@ -43,6 +43,9 @@ function flipCards() {
 
     const playerCard = playerDeck.pop()
     const computerCard = computerDeck.pop()
+
+    playerCardSlot.appendChild(playerCard.getHTML())
+    computerCardSlot.appendChild(computerCard.getHTML())
 }
 
 function updateDeckCount() {
