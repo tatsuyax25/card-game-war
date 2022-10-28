@@ -46,6 +46,8 @@ function flipCards() {
 
     playerCardSlot.appendChild(playerCard.getHTML())
     computerCardSlot.appendChild(computerCard.getHTML())
+
+    updateDeckCount()
 }
 
 function updateDeckCount() {
