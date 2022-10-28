@@ -74,6 +74,10 @@ function flipCards() {
         text.innerText = "Lose"
         computerDeck.push(playerCard)
         computerDeck.push(computerCard)
+    } else {
+        text.innerText = "Draw"
+        playerDeck.push(playerCard)
+        computerDeck.push(computerCard)
     }
 }
 
