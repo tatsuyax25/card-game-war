@@ -24,4 +24,11 @@ function cleanBeforeRound() {
     computerCardSlot.innerHTML = ''
     playerCardSlot.innerHTML = ''
     text.innerText = ''
+
+    updateDeckCount()
+}
+
+function updateDeckCount() {
+    computerDeckElement.innerText = computerDeck.numberOfCards
+    playerDeckElement.innerText = playerDeck.numberOfCards
 }
