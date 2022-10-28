@@ -68,6 +68,12 @@ function flipCards() {
 
     if (isRoundWinner(playerCard, computerCard)) {
         text.innerText = "Win"
+        playerDeck.push(playerCard)
+        playerDeck.push(computerCard)
+    } else if (isRoundWinner(computerCard, playerCard)) {
+        text.innerText = "Lose"
+        computerDeck.push(playerCard)
+        computerDeck.push(computerCard)
     }
 }
 
