@@ -23,9 +23,14 @@ const computerDeckElement = document.querySelector('.computer-deck')
 const playerDeckElement = document.querySelector('.player-deck')
 const text = document.querySelector('.text')
 
-let playerDeck, computerDeck, inRound
+let playerDeck, computerDeck, inRound, stop
 
 document.addEventListener('click', () => {
+    if (stop) {
+        startGame()
+        return
+    }
+
     if (inRound) {
        cleanBeforeRound() 
     } else {
@@ -42,6 +47,7 @@ function startGame() {
     playerDeck = new Deck(deck.cards.slice(0, deckMidpoint))
     computerDeck = new Deck(deck.cards.slice(deckMidpoint, deck.numberOfCards))
     inRound = false
+    stop = false
 
     cleanBeforeRound()
 }
@@ -79,6 +85,14 @@ function flipCards() {
         playerDeck.push(playerCard)
         computerDeck.push(computerCard)
     }
+
+    if (isGameOver(playerDeck)) {
+        text.innerText = 'You Lose!!'
+        stop = true
+    } else if (isGameOver(computerDeck)) {
+        text.innerText = 'You Win!!'
+        stop = true
+    }
 }
 
 function updateDeckCount() {
@@ -88,4 +102,8 @@ function updateDeckCount() {
 
 function isRoundWinner(cardOne, cardTwo) {
     return CARD_VALUE_MAP[cardOne.value] > CARD_VALUE_MAP[cardTwo.value]
+}
+
+function isGameOver(deck) {
+    return deck.numberOfCards === 0
 }
