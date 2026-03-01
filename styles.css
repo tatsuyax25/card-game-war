@@ -1,9 +1,13 @@
+/* ===== GLOBAL STYLES ===== */
+
+/* Reset box-sizing for all elements */
 *,
 *::after,
 *::before {
     box-sizing: border-box;
 }
 
+/* Body with gradient background and centered layout */
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -15,6 +19,9 @@ body {
     padding: 1rem;
 }
 
+/* ===== GAME CONTAINER ===== */
+
+/* Main container with white background and shadow */
 .game-container {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 1rem;
@@ -24,6 +31,9 @@ body {
     width: 100%;
 }
 
+/* ===== HEADER SECTION ===== */
+
+/* Header with title and info button */
 .header {
     text-align: center;
     margin-bottom: 1.5rem;
@@ -36,6 +46,7 @@ body {
     font-size: 2.5rem;
 }
 
+/* Info button positioned in top-right corner */
 .info-btn {
     position: absolute;
     right: 0;
@@ -56,6 +67,9 @@ body {
     transform: translateY(-50%) scale(1.1);
 }
 
+/* ===== SCORE BOARD ===== */
+
+/* Score display area */
 .score-board {
     display: flex;
     justify-content: space-around;
@@ -76,6 +90,7 @@ body {
     margin-bottom: 0.25rem;
 }
 
+/* Score numbers styling */
 .computer-score,
 .player-score {
     font-size: 2rem;
@@ -83,6 +98,9 @@ body {
     color: #667eea;
 }
 
+/* ===== GAME BOARD ===== */
+
+/* Main game board layout */
 .game-board {
     display: flex;
     flex-direction: column;
@@ -90,6 +108,7 @@ body {
     margin-bottom: 1.5rem;
 }
 
+/* Computer and player sections with deck and card slot */
 .computer-section,
 .player-section {
     display: grid;
@@ -98,6 +117,7 @@ body {
     align-items: center;
 }
 
+/* Deck display showing remaining cards */
 .deck {
     height: 7rem;
     width: 4rem;
@@ -109,7 +129,7 @@ body {
     font-weight: bold;
     border-radius: 0.5rem;
     color: white;
-    -webkit-user-select: none;
+    -webkit-user-select: none; /* Safari support */
     user-select: none;
     transition: transform 0.2s;
 }
@@ -118,14 +138,17 @@ body {
     transform: scale(1.05);
 }
 
+/* Computer deck with pink gradient */
 .computer-deck {
     background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 }
 
+/* Player deck with blue gradient */
 .player-deck {
     background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
 }
 
+/* Card slot where flipped cards appear */
 .card-slot {
     height: 7rem;
     min-height: 7rem;
@@ -137,6 +160,7 @@ body {
     background: #f8f9fa;
 }
 
+/* Game status text (Win/Lose/War) */
 .text {
     text-align: center;
     font-size: 1.5rem;
@@ -148,6 +172,9 @@ body {
     align-items: center;
 }
 
+/* ===== CARD STYLING ===== */
+
+/* Individual card with flip animation */
 .card {
     position: relative;
     height: 7rem;
@@ -162,6 +189,7 @@ body {
     animation: flipIn 0.3s ease-out;
 }
 
+/* Card flip entrance animation */
 @keyframes flipIn {
     from {
         transform: rotateY(90deg);
@@ -173,14 +201,17 @@ body {
     }
 }
 
+/* Red cards (hearts and diamonds) */
 .card.red {
     color: #e74c3c;
 }
 
+/* Black cards (clubs and spades) */
 .card.black {
     color: #2c3e50;
 }
 
+/* Card value indicators in corners */
 .card::before,
 .card::after {
     position: absolute;
@@ -189,23 +220,29 @@ body {
     font-weight: bold;
 }
 
+/* Top-left corner value */
 .card::before {
     top: 0.25rem;
     left: 0.25rem;
 }
 
+/* Bottom-right corner value (rotated) */
 .card::after {
     bottom: 0.25rem;
     right: 0.25rem;
     transform: rotate(180deg);
 }
 
+/* ===== CONTROLS ===== */
+
+/* Button container */
 .controls {
     display: flex;
     gap: 1rem;
     justify-content: center;
 }
 
+/* Base button styling */
 .btn {
     padding: 0.75rem 2rem;
     font-size: 1rem;
@@ -217,6 +254,7 @@ body {
     color: white;
 }
 
+/* Flip button with purple gradient */
 #flipBtn {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
@@ -226,12 +264,14 @@ body {
     box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
 }
 
+/* Disabled state for flip button */
 #flipBtn:disabled {
     opacity: 0.5;
     cursor: not-allowed;
     transform: none;
 }
 
+/* Restart button with pink gradient */
 #restartBtn {
     background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 }
@@ -241,6 +281,9 @@ body {
     box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
 }
 
+/* ===== MODAL (INSTRUCTIONS) ===== */
+
+/* Modal overlay covering entire screen */
 .modal {
     display: none;
     position: fixed;
@@ -252,6 +295,7 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
+/* Modal content box */
 .modal-content {
     background-color: white;
     margin: 10% auto;
@@ -263,6 +307,7 @@ body {
     animation: slideDown 0.3s ease-out;
 }
 
+/* Modal slide-down animation */
 @keyframes slideDown {
     from {
         transform: translateY(-50px);
@@ -274,6 +319,7 @@ body {
     }
 }
 
+/* Close button (X) */
 .close {
     position: absolute;
     right: 1rem;
@@ -289,16 +335,21 @@ body {
     color: #333;
 }
 
+/* Modal heading */
 .modal-content h2 {
     color: #667eea;
     margin-top: 0;
 }
 
+/* Modal list styling */
 .modal-content ul {
     line-height: 1.8;
     color: #555;
 }
 
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Mobile adjustments for smaller screens */
 @media (max-width: 600px) {
     .header h1 {
         font-size: 2rem;
@@ -308,6 +359,7 @@ body {
         padding: 1rem;
     }
     
+    /* Stack buttons vertically on mobile */
     .controls {
         flex-direction: column;
     }
