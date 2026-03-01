@@ -5,17 +5,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Card Game</title>
+    <title>War - Card Game</title>
     <script src="script.js" type="module"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <div class="computer-deck deck"></div>
-    <div class="computer-card-slot card-slot"></div>
-    <div class="text"></div>
-    <div class="player-deck deck"></div>
-    <div class="player-card-slot card-slot"></div>
+    <div class="game-container">
+        <div class="header">
+            <h1>⚔️ WAR ⚔️</h1>
+            <button class="info-btn" id="infoBtn">ℹ️</button>
+        </div>
+        
+        <div class="score-board">
+            <div class="score">
+                <span class="label">Computer Wins:</span>
+                <span class="computer-score">0</span>
+            </div>
+            <div class="score">
+                <span class="label">Player Wins:</span>
+                <span class="player-score">0</span>
+            </div>
+        </div>
+
+        <div class="game-board">
+            <div class="computer-section">
+                <div class="computer-deck deck"></div>
+                <div class="computer-card-slot card-slot"></div>
+            </div>
+            
+            <div class="text"></div>
+            
+            <div class="player-section">
+                <div class="player-card-slot card-slot"></div>
+                <div class="player-deck deck"></div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="btn" id="flipBtn">Flip Cards</button>
+            <button class="btn" id="restartBtn">New Game</button>
+        </div>
+    </div>
+
+    <div class="modal" id="infoModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>How to Play War</h2>
+            <p>War is a simple card game for two players.</p>
+            <ul>
+                <li>Each player gets half the deck (26 cards)</li>
+                <li>Click "Flip Cards" to reveal the top card from each deck</li>
+                <li>Higher card wins both cards (Ace is highest)</li>
+                <li>If cards tie, it's WAR! Each player plays 3 face-down cards, then 1 face-up. Highest wins all cards</li>
+                <li>Game ends when one player has all 52 cards</li>
+            </ul>
+        </div>
+    </div>
 </body>
 
 </html>

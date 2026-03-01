@@ -6,39 +6,143 @@
 
 body {
     margin: 0;
-    display: grid;
-    grid-template-columns: repeat(2, 4rem);
-    grid-template-rows: 7rem 2rem 7rem;
-    gap: .5rem;
-    cursor: pointer;
-    justify-content: center;
-    padding-top: 1rem;
-}
-
-.deck {
-    height: 100%;
-    width: 100%;
-    border: 1px solid black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3rem;
-    border-radius: .5rem;
+    padding: 1rem;
+}
+
+.game-container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    width: 100%;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.header h1 {
+    margin: 0;
+    color: #333;
+    font-size: 2.5rem;
+}
+
+.info-btn {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #667eea;
+    border: none;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+}
+
+.info-btn:hover {
+    background: #764ba2;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.score-board {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 0.5rem;
+}
+
+.score {
+    text-align: center;
+}
+
+.score .label {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+}
+
+.computer-score,
+.player-score {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #667eea;
+}
+
+.game-board {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.computer-section,
+.player-section {
+    display: grid;
+    grid-template-columns: 4rem 1fr;
+    gap: 1rem;
+    align-items: center;
+}
+
+.deck {
+    height: 7rem;
+    width: 4rem;
+    border: 2px solid #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    border-radius: 0.5rem;
     color: white;
     -webkit-user-select: none;
     user-select: none;
+    transition: transform 0.2s;
+}
+
+.deck:hover {
+    transform: scale(1.05);
 }
 
 .computer-deck {
-    background-color: green;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 }
 
 .player-deck {
-    background-color: blue;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.card-slot {
+    height: 7rem;
+    min-height: 7rem;
+    border: 2px dashed #ccc;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f8f9fa;
 }
 
 .text {
-    grid-column: span 2;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    min-height: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,38 +150,169 @@ body {
 
 .card {
     position: relative;
-    height: 100%;
-    width: 100%;
-    border: 1px solid black;
-    border-radius: .5rem;
+    height: 7rem;
+    width: 5rem;
+    border: 2px solid #333;
+    border-radius: 0.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 4rem;
+    font-size: 3rem;
+    background: white;
+    animation: flipIn 0.3s ease-out;
+}
+
+@keyframes flipIn {
+    from {
+        transform: rotateY(90deg);
+        opacity: 0;
+    }
+    to {
+        transform: rotateY(0);
+        opacity: 1;
+    }
 }
 
 .card.red {
-    color: red;
+    color: #e74c3c;
 }
 
 .card.black {
-    color: black;
+    color: #2c3e50;
 }
 
 .card::before,
 .card::after {
     position: absolute;
     content: attr(data-value);
-    font-size: 1rem;
+    font-size: 0.8rem;
+    font-weight: bold;
 }
 
 .card::before {
-    top: .5rem;
-    left: .5rem
+    top: 0.25rem;
+    left: 0.25rem;
 }
 
 .card::after {
-    bottom: .5rem;
-    right: .5rem;
+    bottom: 0.25rem;
+    right: 0.25rem;
     transform: rotate(180deg);
+}
+
+.controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: white;
+}
+
+#flipBtn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+#flipBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+#flipBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#restartBtn {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+#restartBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 2rem;
+    border-radius: 1rem;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close:hover {
+    color: #333;
+}
+
+.modal-content h2 {
+    color: #667eea;
+    margin-top: 0;
+}
+
+.modal-content ul {
+    line-height: 1.8;
+    color: #555;
+}
+
+@media (max-width: 600px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .game-container {
+        padding: 1rem;
+    }
+    
+    .controls {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+    }
 }
