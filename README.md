@@ -4,6 +4,17 @@ A modern, interactive implementation of the classic card game "War" built with v
 
 ![War Card Game](https://img.shields.io/badge/game-war-blue) ![JavaScript](https://img.shields.io/badge/javascript-ES6-yellow) ![License](https://img.shields.io/badge/license-MIT-green)
 
+## 📸 Screenshots
+
+### Main Game Interface
+![Main Game](https://i.imgur.com/oiOBfgB.png)
+
+### War Round in Action
+![War Round](https://i.imgur.com/WUVAJP8.png)
+
+### Game Instructions Modal
+![Instructions](https://i.imgur.com/RFMzkVQ.png)
+
 ## 🎮 Game Overview
 
 War is a simple yet engaging card game where two players compete to win all 52 cards. Each round, players flip their top card - the higher card wins both cards. When cards tie, it's WAR! Players play 3 face-down cards and 1 face-up card, with the highest winning all cards in play.
